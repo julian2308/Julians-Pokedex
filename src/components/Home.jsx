@@ -2,7 +2,7 @@ const Home = () => {
 
     return(
 
-        <h1>Welcome to Julian's movies</h1>
+        <h1>Welcome to Julian's Pokedex</h1>
     )
 
 }
