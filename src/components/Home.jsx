@@ -1,10 +1,11 @@
+import "../styles/Home.css"
+
 const Home = () => {
+  return (
+    <div className="mainContainer">
+      <h1>Welcome to Julian's Pokedex</h1>
+    </div>
+  );
+};
 
-    return(
-
-        <h1>Welcome to Julian's Pokedex</h1>
-    )
-
-}
-
-export default Home
+export default Home;

@@ -1,8 +1,53 @@
 .container{
     width: 20vw;
     margin: 70px;
-    border: 2px solid green;
+    border: 3px solid black;
+    border-radius: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url("../../public/pokedex.jpg");
+    background-size: cover;
+    color: black;
 }
+
+img{
+    width: 7vw;
+}
+
+.nameAndNumber{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.pokemonInfo{
+    width: 35%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+}
+
+.valueInfo{
+
+    margin-left: 5px;
+}
+
+.typesContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.pokemonType{
+    margin-bottom: 0px;
+    border: white solid 3px;
+    padding: 0px 2px 0px 2px;
+}
+
+.pokemonType1{
+    margin-left: 5px;
+    
+}
+

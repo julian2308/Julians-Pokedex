@@ -1,0 +1,21 @@
+body {
+    font-family:'Times New Roman', Times, serif;
+    color: black;
+    
+}
+
+h1{
+    font-size: 90px;
+    margin-bottom: 50vh;
+}
+
+.mainContainer{
+    width: 100vw;
+    background-image: url("../../public/fondoPokemon.jpg");
+    height: 91vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

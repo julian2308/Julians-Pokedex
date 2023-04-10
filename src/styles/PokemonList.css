@@ -1,6 +1,17 @@
-.pokemonsContainer{
+.pokemonsNumber{
+   text-align: center;
+   font-size: large;
+   font-weight: bold;
+   color: black;
+   background: linear-gradient(to right, #007bff, #32a842);
+   margin: 0px;
+   padding-top: 20px;
+   font-size: 30px;
+}
 
+.pokemonsContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background: linear-gradient(to right, #007bff, #32a842);
 }

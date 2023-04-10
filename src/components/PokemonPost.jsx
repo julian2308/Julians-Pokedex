@@ -13,19 +13,45 @@ const BlogPost = ({ pokemonInfo }) => {
     const fetchData = async () => {
       const result = await axios(pokemonInfo);
       setPokemonDataFetch(result.data);
-      console.log(result.data, "acaaaaa");
     };
 
     fetchData();
   }, []);
 
+  console.log(pokemonDataFetch);
+
   return (
     <>
       {pokemonDataFetch ? (
         <div className="container">
-          <h2>Pokedex #{pokemonDataFetch.id}</h2>
-          <h3>{capitalize(pokemonDataFetch.name)}</h3>
           <img src={pokemonDataFetch.sprites.front_default} alt="" />
+          <div className="nameAndNumber">
+            <h3>{capitalize(pokemonDataFetch.name)}</h3>
+            <h3>{pokemonDataFetch.id}</h3>
+          </div>
+          <div className="pokemonInfo">
+            <div className="keyInfo">
+              <h4>Type</h4>
+              <h4 style={{ marginTop: "29px" }}>Ability</h4>
+            </div>
+            <div className="valueInfo">
+              <div className="typesContainer">
+                {pokemonDataFetch
+                  ? pokemonDataFetch.types.map((type, index) => (
+                      <h4 className={`pokemonType pokemonType${index}`}>
+                        {capitalize(type.type.name)}
+                      </h4>
+                    ))
+                  : null}
+              </div>
+              {pokemonDataFetch.abilities ? (
+                <h4 style={{marginBottom: "0px", border: "white solid 3px", padding: "0px 2px 0px 2px"}}>
+                  {capitalize(pokemonDataFetch.abilities[0].ability.name)}
+                </h4>
+              ) : null}
+            </div>
+          </div>
+          <div></div>
         </div>
       ) : null}
     </>
