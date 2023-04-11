@@ -4,7 +4,7 @@ import PokemonPost from "./PokemonPost";
 import "../styles/PokemonList.css";
 
 const PokemonList = () => {
-  const POKE_API_URL = "https://pokeapi.co/api/v2/pokemon?limit=40";
+  const POKE_API_URL = "https://pokeapi.co/api/v2/pokemon?limit=600";
 
   const [pokemonList, setPokemonList] = useState([]);
   const [pokemonsCounter, setPokemonsCounter] = useState(null);
@@ -21,8 +21,8 @@ const PokemonList = () => {
     fetchData();
   }, []);
 
-  console.log();
-  
+
+  console.log(pokemonList);
 
   return (
     isLoading ? 
@@ -33,7 +33,7 @@ const PokemonList = () => {
       <p className="pokemonsNumber">Current number of Pokemons registered on the Pokedex {pokemonsCounter}</p>
       <div className="pokemonsContainer">
         {pokemonList?.map((pokemon) => {
-          return <PokemonPost pokemonInfo={pokemon} />;
+          return <PokemonPost pokemonInfo={pokemon} key={pokemon.url}/>;
         })}
       </div>
     </>

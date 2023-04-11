@@ -18,7 +18,7 @@ const BlogPost = ({ pokemonInfo }) => {
     fetchData();
   }, []);
 
-  console.log(pokemonDataFetch);
+
 
   return (
     <>
@@ -38,7 +38,7 @@ const BlogPost = ({ pokemonInfo }) => {
               <div className="typesContainer">
                 {pokemonDataFetch
                   ? pokemonDataFetch.types.map((type, index) => (
-                      <h4 className={`pokemonType pokemonType${index}`}>
+                      <h4 key={index} className={`pokemonType pokemonType${index}`}>
                         {capitalize(type.type.name)}
                       </h4>
                     ))
