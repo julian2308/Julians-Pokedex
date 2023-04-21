@@ -1,6 +1,14 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDocFromCache,
+  getDocs,
+  getFirestore,
+  setDoc,
+} from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,14 +26,33 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
-const addCatchOrPendingPokemon = async (name, description, type) => {
+export const addCatchedOrUnkownPokemon = async (id, name, type) => {
   try {
-    const docRef = await addDoc(collection(db, type), {
-      name: name,
-      description: description,
-    });
+    const collectionRef = collection(db, type);
+    const objectToPost = { id: id, name: name };
+
+    const docRef = await addDoc(collectionRef, objectToPost);
+
     console.log("Document with ID", docRef.id);
   } catch (e) {
     console.error(e);
   }
+};
+
+export const getCatchedPokemons = async () => {
+  const allRef = collection(db, "catched");
+  const pokemones = []
+
+  try {
+    await getDocs(allRef).then((querySnapshot) => {
+      querySnapshot.docs.map((doc) => (
+        pokemones.push(doc.data())));
+    });
+
+    return pokemones;
+  } catch (e) {
+    console.log("Error getting catched document:", e);
+  }
+
+
 };

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {addCatchedOrUnkownPokemon} from "../firebase.js"
 import axios from "axios";
+import {CatchedButton} from "./CatchedButton.jsx"
 import "../styles/PokemonPost.css";
 
-const BlogPost = ({ pokemonInfo }) => {
+const BlogPost = ({ pokemonInfo, catched }) => {
   const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
@@ -18,13 +19,19 @@ const BlogPost = ({ pokemonInfo }) => {
     fetchData();
   }, []);
 
-
+  console.log(catched);
 
   return (
     <>
       {pokemonDataFetch ? (
         <div className="container">
-          <img src={pokemonDataFetch.sprites.front_default} alt="" />
+          <div className="pokemonHeader">
+            <button onClick={() => addCatchedOrUnkownPokemon(pokemonDataFetch.id, pokemonDataFetch.name, "unknown")}>Unwkon</button>
+            <img src={pokemonDataFetch.sprites.front_default} alt="" />
+            <button onClick={() => addCatchedOrUnkownPokemon(pokemonDataFetch.id, pokemonDataFetch.name, "catched")} >Catched</button>
+            <div>{catched.includes(pokemonDataFetch.id) ? "esta" : "no esta"}</div>
+            <CatchedButton isCatched={catched.includes(pokemonDataFetch.id)}/>
+          </div>
           <div className="nameAndNumber">
             <h3>{capitalize(pokemonDataFetch.name)}</h3>
             <h3>{pokemonDataFetch.id}</h3>
@@ -38,14 +45,23 @@ const BlogPost = ({ pokemonInfo }) => {
               <div className="typesContainer">
                 {pokemonDataFetch
                   ? pokemonDataFetch.types.map((type, index) => (
-                      <h4 key={index} className={`pokemonType pokemonType${index}`}>
+                      <h4
+                        key={index}
+                        className={`pokemonType pokemonType${index}`}
+                      >
                         {capitalize(type.type.name)}
                       </h4>
                     ))
                   : null}
               </div>
               {pokemonDataFetch.abilities ? (
-                <h4 style={{marginBottom: "0px", border: "white solid 3px", padding: "0px 2px 0px 2px"}}>
+                <h4
+                  style={{
+                    marginBottom: "0px",
+                    border: "white solid 3px",
+                    padding: "0px 2px 0px 2px",
+                  }}
+                >
                   {capitalize(pokemonDataFetch.abilities[0].ability.name)}
                 </h4>
               ) : null}
