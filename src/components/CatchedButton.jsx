@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 export const CatchedButton = ({ isCatched, onClickFunction }) => {
+    const [isBeingCatched, setIsBeingCatched] = useState(isCatched)
   const initialState = isCatched
-    ? "../../public/buttons/master-on.png"
-    : "../../public/buttons/master-off.png";
+    ? "buttons/master-on.png"
+    : "buttons/master-off.png";
   const [catchedPokemon, setCatchedPokemon] = useState(initialState);
 
   console.log(initialState, isCatched, "pokee");
@@ -11,12 +12,15 @@ export const CatchedButton = ({ isCatched, onClickFunction }) => {
   return (
     <div>
       <img
-        src={isCatched ? "./../public/buttons/master-on.png" : catchedPokemon}
+        src={isCatched ? "buttons/master-on.png" : catchedPokemon}
         alt="Catched"
         style={{ width: "100px" }}
         onClick={() => {
-          onClickFunction();
-          setCatchedPokemon("../../public/buttons/master-on.png");
+          if (!isBeingCatched) {
+            onClickFunction();
+            setCatchedPokemon("buttons/master-on.png");
+            setIsBeingCatched(!isBeingCatched)
+          }
         }}
       />
     </div>

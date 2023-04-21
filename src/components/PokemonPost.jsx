@@ -36,6 +36,7 @@ const BlogPost = ({ pokemonInfo, catched, unknown }) => {
     );
   };
 
+  console.log(pokemonInfo, "nnnfo");
   return (
     <>
       {pokemonDataFetch ? (
@@ -46,7 +47,6 @@ const BlogPost = ({ pokemonInfo, catched, unknown }) => {
               onClickFunction={addUnknown}
             />
             <img src={pokemonDataFetch.sprites.front_default} alt="" />
-            {/*<button onClick={() => addCatchedOrUnkownPokemon(pokemonDataFetch.id, pokemonDataFetch.name, "catched")} >Catched</button>*/}
             <CatchedButton
               isCatched={catched.includes(pokemonDataFetch.id)}
               onClickFunction={addCatched}

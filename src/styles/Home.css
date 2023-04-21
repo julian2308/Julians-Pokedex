@@ -11,7 +11,7 @@ h1{
 
 .mainContainer{
     width: 100vw;
-    background-image: url("../../public/fondoPokemon.jpg");
+    background-image: url("fondoPokemon.jpg");
     height: 91vh;
     background-repeat: no-repeat;
     background-size: cover;
