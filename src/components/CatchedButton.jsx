@@ -1,12 +1,24 @@
-export const CatchedButton = ({isCatched, onClick}) => {
+import { useState } from "react";
 
-    const src = isCatched ? "../../public/buttons/master-on.png" : "../../public/buttons/master-off.png"
+export const CatchedButton = ({ isCatched, onClickFunction }) => {
+  const initialState = isCatched
+    ? "../../public/buttons/master-on.png"
+    : "../../public/buttons/master-off.png";
+  const [catchedPokemon, setCatchedPokemon] = useState(initialState);
 
-    return(
-        <div>
-            <img src={src} alt="Catched" style={{width: "100px"}}/>
-        </div>
-    )
+  console.log(initialState, isCatched, "pokee");
 
-}
-
+  return (
+    <div>
+      <img
+        src={isCatched ? "./../public/buttons/master-on.png" : catchedPokemon}
+        alt="Catched"
+        style={{ width: "100px" }}
+        onClick={() => {
+          onClickFunction();
+          setCatchedPokemon("../../public/buttons/master-on.png");
+        }}
+      />
+    </div>
+  );
+};

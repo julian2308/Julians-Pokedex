@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import {addCatchedOrUnkownPokemon} from "../firebase.js"
+import { addCatchedOrUnkownPokemon } from "../firebase.js";
 import axios from "axios";
-import {CatchedButton} from "./CatchedButton.jsx"
+import { CatchedButton } from "./CatchedButton.jsx";
+import { UnknownButton } from "./UnknownButton.jsx";
 import "../styles/PokemonPost.css";
 
-const BlogPost = ({ pokemonInfo, catched }) => {
+const BlogPost = ({ pokemonInfo, catched, unknown }) => {
   const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
@@ -19,18 +20,37 @@ const BlogPost = ({ pokemonInfo, catched }) => {
     fetchData();
   }, []);
 
-  console.log(catched);
+  const addCatched = () => {
+    addCatchedOrUnkownPokemon(
+      pokemonDataFetch.id,
+      pokemonDataFetch.name,
+      "catched"
+    );
+  };
+
+  const addUnknown = () => {
+    addCatchedOrUnkownPokemon(
+      pokemonDataFetch.id,
+      pokemonDataFetch.name,
+      "unknown"
+    );
+  };
 
   return (
     <>
       {pokemonDataFetch ? (
         <div className="container">
           <div className="pokemonHeader">
-            <button onClick={() => addCatchedOrUnkownPokemon(pokemonDataFetch.id, pokemonDataFetch.name, "unknown")}>Unwkon</button>
+            <UnknownButton
+              isCatched={unknown.includes(pokemonDataFetch.id)}
+              onClickFunction={addUnknown}
+            />
             <img src={pokemonDataFetch.sprites.front_default} alt="" />
-            <button onClick={() => addCatchedOrUnkownPokemon(pokemonDataFetch.id, pokemonDataFetch.name, "catched")} >Catched</button>
-            <div>{catched.includes(pokemonDataFetch.id) ? "esta" : "no esta"}</div>
-            <CatchedButton isCatched={catched.includes(pokemonDataFetch.id)}/>
+            {/*<button onClick={() => addCatchedOrUnkownPokemon(pokemonDataFetch.id, pokemonDataFetch.name, "catched")} >Catched</button>*/}
+            <CatchedButton
+              isCatched={catched.includes(pokemonDataFetch.id)}
+              onClickFunction={addCatched}
+            />
           </div>
           <div className="nameAndNumber">
             <h3>{capitalize(pokemonDataFetch.name)}</h3>

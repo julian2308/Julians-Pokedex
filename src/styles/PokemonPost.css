@@ -11,9 +11,15 @@
     color: black;
 }
 
+.pokemonHeader{
+    display: flex;
+}
+
 img{
     width: 7vw;
 }
+
+
 
 .nameAndNumber{
     display: flex;
