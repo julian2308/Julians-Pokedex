@@ -36,7 +36,7 @@ const BlogPost = ({ pokemonInfo, catched, unknown }) => {
     );
   };
 
-  console.log(pokemonInfo, "nnnfo");
+
   return (
     <>
       {pokemonDataFetch ? (

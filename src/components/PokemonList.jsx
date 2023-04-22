@@ -5,7 +5,7 @@ import "../styles/PokemonList.css";
 import {getCatchedPokemons, getUnknownPokemons} from "../firebase"
 
 const PokemonList = () => {
-  const POKE_API_URL = "https://pokeapi.co/api/v2/pokemon?limit=12";
+  const POKE_API_URL = "https://pokeapi.co/api/v2/pokemon?limit=30";
 
   const [pokemonList, setPokemonList] = useState([]);
   const [pokemonsCounter, setPokemonsCounter] = useState(null);

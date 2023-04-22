@@ -35,7 +35,7 @@ export const addCatchedOrUnkownPokemon = async (id, name, type) => {
 
     const docRef = await addDoc(collectionRef, objectToPost);
 
-    console.log("Document with ID", docRef.id);
+
   } catch (e) {
     console.error(e);
   }
@@ -53,7 +53,7 @@ export const getCatchedPokemons = async () => {
 
     return pokemones;
   } catch (e) {
-    console.log("Error getting catched document:", e);
+
   }
 
 
@@ -71,7 +71,7 @@ export const getUnknownPokemons = async () => {
 
     return pokemones;
   } catch (e) {
-    console.log("Error getting catched document:", e);
+
   }
 
 
@@ -91,7 +91,7 @@ export const getTrainers = async() => {
 
     return trainers;
   } catch (e) {
-    console.log("Error getting catched document:", e);
+
   }
 }
 
@@ -99,7 +99,7 @@ export const handleDeleteTrainer = async (trainerId) => {
   const docRef = doc(db, "trainer", trainerId);
   try {
     await deleteDoc(docRef)
-    console.log(`Entrenador con ID ${trainerId} eliminado de Cloud Firestore.`);
+
   } catch (error) {
     console.error(error);
   }
@@ -109,7 +109,7 @@ export const handleUpdateTrainer = async (trainerId, data) => {
   const docRef = doc(db, "trainer", trainerId);
   try {
     await updateDoc(docRef,data)
-    console.log(`Entrenador con ID ${trainerId} eliminado de Cloud Firestore.`);
+
   } catch (error) {
     console.error(error);
   }

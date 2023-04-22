@@ -31,7 +31,7 @@ const CaughtPokemonsList = () => {
       setUnknownPokemons(data.map((pokemon) => pokemon.id));
     });
 
-    console.log(pokemonList);
+
   }, [isDataAvailable]);
 
   return isLoading && isDataAvailable ? (

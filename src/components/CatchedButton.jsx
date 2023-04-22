@@ -8,7 +8,7 @@ export const CatchedButton = ({ isCatched, onClickFunction }) => {
     : "buttons/master-off.png";
   const [catchedPokemon, setCatchedPokemon] = useState(initialState);
 
-  console.log(initialState, isCatched, "pokee");
+
 
   return (
     <div className={`actionBtn ${!isBeingCatched ? "click" : "noClick"}`}>
