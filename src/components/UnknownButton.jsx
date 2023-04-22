@@ -9,7 +9,7 @@ export const UnknownButton = ({ isCatched, onClickFunction }) => {
   const [unknownPokemon, setUnknownPokemon] = useState(initialState);
 
   return (
-    <div style={{ ":hover": { cursor: "pointer" } }}>
+    <div className="actionBtn">
       <img
         src={isCatched ? "buttons/unknown-off.png" : unknownPokemon}
         alt="unknown"

@@ -20,14 +20,14 @@ const CaughtPokemonsList = () => {
 
     getCatchedPokemons().then((data) => {
       setIsDataAvailable(true);
-      setPokemonList(removeDuplicatesAndSortById(data));
-
       setIsLoading(false);
       setCatchedPokemons(data.map((pokemon) => pokemon.id));
     });
 
     getUnknownPokemons().then((data) => {
       setIsDataAvailable(true);
+      setPokemonList(removeDuplicatesAndSortById(data));
+      setIsLoading(false);
       setUnknownPokemons(data.map((pokemon) => pokemon.id));
     });
 

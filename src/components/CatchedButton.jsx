@@ -10,7 +10,7 @@ export const CatchedButton = ({ isCatched, onClickFunction }) => {
   console.log(initialState, isCatched, "pokee");
 
   return (
-    <div>
+    <div className="actionBtn">
       <img
         src={isCatched ? "buttons/master-on.png" : catchedPokemon}
         alt="Catched"

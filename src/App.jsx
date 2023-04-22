@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import CaughtPokemonList from "./components/CaughtPokemonList";
+import KnownPokemonList from "./components/KnownPokemonList";
 import "./styles/App.css"
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
         <Route path="/pokemons" Component={PokemonList}>
         </Route>
         <Route path="/caught" Component={CaughtPokemonList}>
+        </Route>
+        <Route path="/known" Component={KnownPokemonList}>
         </Route>
       </Routes>
     </Router>
