@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import CaughtPokemonList from "./components/CaughtPokemonList";
 import KnownPokemonList from "./components/KnownPokemonList";
+import TrainerForm from "./components/TrainerForm";
 import "./styles/App.css"
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
         <Route path="/caught" Component={CaughtPokemonList}>
         </Route>
         <Route path="/known" Component={KnownPokemonList}>
+        </Route>
+        <Route path="/trainer" Component={TrainerForm}>
         </Route>
       </Routes>
     </Router>

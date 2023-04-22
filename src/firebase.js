@@ -74,3 +74,21 @@ export const getUnknownPokemons = async () => {
 
 
 };
+
+export const getTrainers = async() => {
+  const allRef = collection(db, "trainer");
+  const trainers = []
+  try {
+    await getDocs(allRef).then((querySnapshot) => {
+      querySnapshot.docs.map((doc) => (
+        trainers.push({
+          idTrainerDb: doc.id,
+          ...doc.data()
+        })));
+    });
+
+    return trainers;
+  } catch (e) {
+    console.log("Error getting catched document:", e);
+  }
+}
