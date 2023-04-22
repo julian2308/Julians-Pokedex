@@ -4,10 +4,12 @@ import {
   addDoc,
   collection,
   doc,
+  deleteDoc,
   getDocFromCache,
   getDocs,
   getFirestore,
-  setDoc,
+
+  updateDoc
 } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -92,3 +94,23 @@ export const getTrainers = async() => {
     console.log("Error getting catched document:", e);
   }
 }
+
+export const handleDeleteTrainer = async (trainerId) => {
+  const docRef = doc(db, "trainer", trainerId);
+  try {
+    await deleteDoc(docRef)
+    console.log(`Entrenador con ID ${trainerId} eliminado de Cloud Firestore.`);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const handleUpdateTrainer = async (trainerId, data) => {
+  const docRef = doc(db, "trainer", trainerId);
+  try {
+    await updateDoc(docRef,data)
+    console.log(`Entrenador con ID ${trainerId} eliminado de Cloud Firestore.`);
+  } catch (error) {
+    console.error(error);
+  }
+};

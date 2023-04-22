@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "../styles/TrainerForm.css";
 import { addCatchedOrUnkownPokemon } from "../firebase";
 import { getTrainers } from "../firebase";
+import TrainerCard from "./TrainerCard";
+
 
 function TrainerForm() {
   const [name, setName] = useState("");
@@ -27,6 +29,10 @@ function TrainerForm() {
     addCatchedOrUnkownPokemon(id, name, "trainer");
   };
 
+  
+
+
+
   return trainers ? (
     <>
       <form className="pokemon-trainer-form" onSubmit={handleSubmit}>
@@ -47,12 +53,15 @@ function TrainerForm() {
           Enviar
         </button>
       </form>
-      <div className="trainer">
+      <div className="trainerSection">
         {trainers.map((trainer) => {
           return (
             <>
-              <div>{trainer.name}</div>
-              <div>{trainer.id}</div>
+              <TrainerCard
+                name={trainer.name}
+                id={trainer.id}
+                idTrainerDb={trainer.idTrainerDb}
+              />
             </>
           );
         })}
