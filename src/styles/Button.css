@@ -1,0 +1,8 @@
+.actionBtnClick{
+    opacity: 0.7;
+}
+
+.actionBtn:hover{
+    opacity: 1;
+    cursor: pointer;
+}

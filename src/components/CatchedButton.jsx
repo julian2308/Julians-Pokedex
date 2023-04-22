@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/Button.css"
 
 export const CatchedButton = ({ isCatched, onClickFunction }) => {
     const [isBeingCatched, setIsBeingCatched] = useState(isCatched)
@@ -10,7 +11,7 @@ export const CatchedButton = ({ isCatched, onClickFunction }) => {
   console.log(initialState, isCatched, "pokee");
 
   return (
-    <div className="actionBtn">
+    <div className={`actionBtn ${!isBeingCatched ? "click" : "noClick"}`}>
       <img
         src={isCatched ? "buttons/master-on.png" : catchedPokemon}
         alt="Catched"
