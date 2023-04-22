@@ -5,7 +5,6 @@ import {
   collection,
   doc,
   deleteDoc,
-  getDocFromCache,
   getDocs,
   getFirestore,
 
@@ -16,12 +15,13 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAzSmaOA8_gGjAX2TCeg2rlVRPDUFksi1g",
-  authDomain: "julian-spokedex.firebaseapp.com",
-  projectId: "julian-spokedex",
-  storageBucket: "julian-spokedex.appspot.com",
-  messagingSenderId: "800276618142",
-  appId: "1:800276618142:web:c4d49f4b2c45f495ee548f",
+  apiKey: "AIzaSyD3NCdANQ0h_rJjG6C7GJLq5_SsT0cgqiQ",
+  authDomain: "julian-pokedex-39133.firebaseapp.com",
+  projectId: "julian-pokedex-39133",
+  storageBucket: "julian-pokedex-39133.appspot.com",
+  messagingSenderId: "635976389709",
+  appId: "1:635976389709:web:e0f96c79889f7c39043804",
+  measurementId: "G-YEG63CHCQG"
 };
 
 // Initialize Firebase
