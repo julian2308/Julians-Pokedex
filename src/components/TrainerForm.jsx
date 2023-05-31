@@ -29,10 +29,6 @@ function TrainerForm() {
     addCatchedOrUnkownPokemon(id, name, "trainer");
   };
 
-  
-
-
-
   return trainers ? (
     <>
       <form className="pokemon-trainer-form" onSubmit={handleSubmit}>
@@ -61,6 +57,7 @@ function TrainerForm() {
                 name={trainer.name}
                 id={trainer.id}
                 idTrainerDb={trainer.idTrainerDb}
+                key={trainer.id}
               />
             </>
           );
